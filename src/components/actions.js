@@ -1,4 +1,4 @@
-export const AGE_UP = "age_up";
+export const AGE_UP = "age_up_async";
 export const AGE_DOWN = "age_down";
 
 //action  creator 

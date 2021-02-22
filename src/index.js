@@ -4,10 +4,16 @@ import './index.css';
 import App from './components/App';
 import { createStore, applyMiddleware } from "redux"
 import reducer from './components/reducer'
-import { composeWithDevTools } from 'redux-devtools-extension';
 import { Provider } from 'react-redux';
+import createSagaMiddleware from 'redux-saga';
+import { watcher } from './components/saga'
 
-const store = createStore(reducer,)
+
+const sagaMiddleware = createSagaMiddleware()
+const store = createStore(reducer, applyMiddleware(sagaMiddleware))
+sagaMiddleware.run(watcher)
+
+
 ReactDOM.render(
   <Provider store={store}>
     <App />

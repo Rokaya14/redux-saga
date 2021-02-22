@@ -1,22 +1,24 @@
 import { AGE_UP, AGE_DOWN } from './actions'
 
 const initialState = {
-  age: 20,
+  age: 22,
 };
 
 
 const reducer = (state = initialState, action) => {
+  const newState = { ...state };
   switch (action.type)
   {
     case AGE_UP:
-      return { ...state, age: state.age += action.value };
-
+      newState.age += action.value;
+      break;
     case AGE_DOWN:
-      return { ...state, age: state.age -= action.value };
+      newState.age -= action.value;
+      break;
 
-    default:
-      return state
+
   }
+  return newState
 }
 
 export default reducer
